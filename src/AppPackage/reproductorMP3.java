@@ -19,14 +19,8 @@ public class reproductorMP3 extends javax.swing.JDialog {
     public reproductorMP3(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
         this.setLocationRelativeTo(null);
     }
-
-    reproductorMP3() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -113,6 +107,8 @@ public class reproductorMP3 extends javax.swing.JDialog {
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
         jProgressBar1.setStringPainted(true);
         jPanel1.add(jProgressBar1);
+
+        lblUsuario.setText("Hola");
         jPanel1.add(lblUsuario);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 370, 60));

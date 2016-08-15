@@ -10,13 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.ParseException;
 //Fin de Imports que permiten la manipulación de la información de la base de datos
-import java.text.SimpleDateFormat;//Import que permite darle un formato a una fecha
 import java.util.Date;//Import que permite la utilización de fechas
-import java.util.Locale;//Import que selecciona la fecha según la region o pais en el que se encuentre el sistema
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;//Import que permite mostrar mensajes en pantalla
 /**
  *
@@ -87,56 +82,52 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtNombre.getText();
         String password = txtPass.getText();
-        try {
-            acceder(txtNombre.getText(), txtPass.getText());
-        } catch (ParseException ex) {
-            System.out.println(ex);
+        
+        if(acceder(usuario, password)){
+            Reproducto1 reproductor = new Reproducto1();
+            reproductor.setVisible(true);
+            reproductor.pack();
+//            reproductorMP3.lblUsuario.setText(usuario);
+//                Buscar buscar = new Buscar();
+//                buscar.setVisible(true);
+//                this.setVisible(false);
+//                Buscar.jLabel2.setText(usuario);
         }
-        if ((usuario.isEmpty()) || (password.isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
-        } else {
-            this.setVisible(true);
-//            dialogo.setVisible(false);
-        }
+//        if ((usuario.isEmpty()) || (password.isEmpty())) {
+//            JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
+//        } else {
+//            this.setVisible(true);
+////            dialogo.setVisible(false);
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * Metodo que permite realizar la consulta en la base de datos para verificar que el usuario
      * y la contraseña coincidan
      * @param usuario
      * @param pass
+     * @return 
      */
-    public void acceder(String usuario, String pass) throws ParseException {
-//        String capturarFecha = "";
+    public boolean acceder(String usuario, String pass){
+        boolean ingreso=false;
         Date date = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
-        String fecha = formatoFecha.format(date);
-//        String fechaHoy = formatoFecha.format(date);
-//        String fechaCadu;
         Date date_Caducidad = new Date();
         String sql = "Select * from usuarios where nombre_usuario = '" + usuario + "' and palabra_clave = '" + pass + "'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                date_Caducidad = formatoFecha.parse(rs.getString("fecha_caducidad"));
+                date_Caducidad = rs.getDate(4);
             }
-            date=formatoFecha.parse(fecha);
-            if(date_Caducidad.before(date)){//Verifica si la fecha de cadudidad consultada es mayor a la actual
+            if(date.before(date_Caducidad)){//Verifica si la fecha de cadudidad consultada es mayor a la actual
                 JOptionPane.showMessageDialog(null, "Bienvenido");
-//                reproductorMP3 reproductor = new reproductorMP3();
-//                reproductor.setVisible(true);
-//                reproductor.pack();
-//                reproductorMP3.lblUsuario.setText(usuario);
-                Buscar buscar = new Buscar();
-                buscar.setVisible(true);
-                this.setVisible(false);
-                Buscar.jLabel2.setText(usuario);
+                ingreso=true;
             }else{
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ha finalizado su tiempo para utilizar este sistema.");
             }   
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        return ingreso;
     }
 
     /**
