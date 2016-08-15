@@ -3,35 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package AppPackage;
-
-import java.awt.Color;
-import java.awt.Desktop;
-import java.net.URI;
-
 /**
  *
- * @author Felipe
+ * @author Eisner López y Diego Murillo
+ * Fecha de inicio 
+ * Fecha Final 14/08/2016
  */
-public class About extends javax.swing.JDialog {
-
-    URI uri;
+public class About1 extends javax.swing.JDialog {
     /**
-     * Creates new form About
+     * Metodo que permite arrancar el formulario About1
      */
-    public About(java.awt.Frame parent, boolean modal) {
+    public About1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
- 
     }
-
-    About() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,8 +33,6 @@ public class About extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(51, 51, 51));
-        setForeground(java.awt.Color.darkGray);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -68,7 +52,6 @@ public class About extends javax.swing.JDialog {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/File-Music-icon.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,31 +115,6 @@ public class About extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-        try {
-            if (Desktop.isDesktopSupported()) {
-                Desktop desktop = Desktop.getDesktop();
-                if (desktop.isSupported(Desktop.Action.BROWSE)) {
-                    desktop.browse(new URI("https://commander-java.blogspot.com/"));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-        // TODO add your handling code here:
-        jLabel3.setForeground(Color.orange);
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:
-        jLabel3.setForeground(Color.white);
-    }//GEN-LAST:event_jLabel3MouseExited
-
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -168,6 +126,30 @@ public class About extends javax.swing.JDialog {
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseExited
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        //        try {
+            //            if (Desktop.isDesktopSupported()) {
+                //                Desktop desktop = Desktop.getDesktop();
+                //                if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                    //                    desktop.browse(new URI("https://commander-java.blogspot.com/"));
+                    //                }
+                //            }
+            //        } catch (Exception e) {
+            //            e.printStackTrace();
+            //        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+        //jLabel3.setForeground(Color.orange);
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+       // jLabel3.setForeground(Color.white);
+    }//GEN-LAST:event_jLabel3MouseExited
 
     /**
      * @param args the command line arguments
@@ -186,26 +168,27 @@ public class About extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(About1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(About1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(About1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(About.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(About1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                About dialog = new About(new javax.swing.JFrame(), true);
+                About1 dialog = new About1(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                   
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
                 });
                 dialog.setVisible(true);
-                
             }
         });
     }

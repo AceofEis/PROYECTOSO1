@@ -213,7 +213,7 @@ public class reproductorMP3 extends javax.swing.JDialog {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        About dialog = new About(new javax.swing.JFrame(), true);
+        About1 dialog = new About1(new javax.swing.JFrame(), true);
         dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
             @Override

@@ -5,16 +5,16 @@
  */
 package AppPackage;
 
-import Conectar.Coneccion;
+import Conectar.Coneccion;//Import de la clase Coneccion que se encuentra en el paquete Conectar
+//Imports que permiten la manipulación de la información de la base de datos
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import java.text.SimpleDateFormat;//Import que permite darle un formato a una fecha
+import java.util.Date;//Import que permite la utilización de fechas
+import java.util.Locale;//Import que selecciona la fecha según la region o pais en el que se encuentre el sistema
 import javax.swing.JOptionPane;
 
 /**
@@ -127,11 +127,9 @@ public class Login extends javax.swing.JFrame {
                 buscar.setVisible(true);
                 this.setVisible(false);
                 Buscar.jLabel2.setText(usuario);
-
-
             }   
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
     }
 
