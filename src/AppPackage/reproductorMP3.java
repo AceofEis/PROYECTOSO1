@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package AppPackage;
 
 //All code is added to create the widget. Follow the "Create a Widget" tutorial if you want to know how I did it.
@@ -192,8 +197,6 @@ public class reproductorMP3 extends javax.swing.JDialog {
             File myFile = chooser.getSelectedFile();
             String song = myFile + "";
             
-            
-
             String name = chooser.getSelectedFile().getName();
             Display.setText(name);
 

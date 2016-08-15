@@ -80,10 +80,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String usuario = txtNombre.getText();
-        String password = txtPass.getText();
-        
-        if(acceder(usuario, password)){
+        if(acceder(txtNombre.getText(), txtPass.getText())){
             Reproducto1 reproductor = new Reproducto1();
             reproductor.setVisible(true);
             reproductor.pack();
@@ -93,6 +90,7 @@ public class Login extends javax.swing.JFrame {
 //                this.setVisible(false);
 //                Buscar.jLabel2.setText(usuario);
         }
+        this.dispose();
 //        if ((usuario.isEmpty()) || (password.isEmpty())) {
 //            JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
 //        } else {

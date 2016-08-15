@@ -5,13 +5,13 @@
  */
 package AppPackage;
 
-import java.awt.Toolkit;
-import java.io.File;
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.Toolkit;//Import que me permite hacer modificaciones a la interfaz grafica de usuario, tamaños de ventanas, etc
+import java.io.File;//Import que permite realizar trabajos con archivos
+import javax.swing.JFileChooser;//Import que permite controlar un componente con el cual podemos buscar de forma gráfica un archivo
+import javax.swing.filechooser.FileNameExtensionFilter;//Import que permite filtrar los por el tipo de archivo que necesitamos buscar, esto dentro del mismo componente
 /**
  *
- * @author Diego
+ * @author Eisner López y Diego Murillo
  */
 public class Reproducto1 extends javax.swing.JFrame {
     MainClass mc = new MainClass();
@@ -31,7 +31,6 @@ public class Reproducto1 extends javax.swing.JFrame {
         initComponents();
         //this.setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,10 +57,12 @@ public class Reproducto1 extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Display.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
         Display.setForeground(new java.awt.Color(255, 255, 255));
         Display.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 10, 330, 20));
 
         Play.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Play.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,6 +70,7 @@ public class Reproducto1 extends javax.swing.JFrame {
                 PlayMouseReleased(evt);
             }
         });
+        getContentPane().add(Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 90, 83));
 
         SelectFile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         SelectFile.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,6 +78,7 @@ public class Reproducto1 extends javax.swing.JFrame {
                 SelectFileMouseReleased(evt);
             }
         });
+        getContentPane().add(SelectFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 60, 40, 40));
 
         Pause.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Pause.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,6 +86,7 @@ public class Reproducto1 extends javax.swing.JFrame {
                 PauseMouseReleased(evt);
             }
         });
+        getContentPane().add(Pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 50, 60, 60));
 
         Stop.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Stop.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,8 +94,10 @@ public class Reproducto1 extends javax.swing.JFrame {
                 StopMouseReleased(evt);
             }
         });
+        getContentPane().add(Stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 48, 67, 62));
 
         Loop.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(Loop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 40, 40));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Imagenes/Background.png"))); // NOI18N
         Background.setText("000000000000");
@@ -105,6 +111,7 @@ public class Reproducto1 extends javax.swing.JFrame {
                 BackgroundMousePressed(evt);
             }
         });
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 51));
 
@@ -115,6 +122,8 @@ public class Reproducto1 extends javax.swing.JFrame {
 
         lblUsuario.setText("Hola");
         jPanel1.add(lblUsuario);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 370, 60));
 
         jMenu1.setText("File");
 
@@ -142,66 +151,6 @@ public class Reproducto1 extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(Loop, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(90, 90, 90)
-                            .addComponent(Play, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(319, 319, 319)
-                            .addComponent(SelectFile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(245, 245, 245)
-                            .addComponent(Pause, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(Display, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(Loop, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(Play, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(SelectFile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(Background)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(Stop, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(Pause, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(Display, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
