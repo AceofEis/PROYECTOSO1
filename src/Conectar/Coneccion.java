@@ -24,7 +24,7 @@ public class Coneccion {
       try {
            //Cargamos el Driver MySQL
            Class.forName("com.mysql.jdbc.Driver");
-           conect = DriverManager.getConnection("jdbc:mysql://localhost/proyectoso1","root","1234");
+           conect = DriverManager.getConnection("jdbc:mysql://localhost/proyectoso1","root","HolaMundo88");
            //JOptionPane.showMessageDialog(null, "conectado");
            //Cargamos el Driver Access
            //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");

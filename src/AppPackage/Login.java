@@ -4,37 +4,38 @@
  * and open the template in the editor.
  */
 package AppPackage;
-
 import Conectar.Coneccion;//Import de la clase Coneccion que se encuentra en el paquete Conectar
-//Imports que permiten la manipulación de la información de la base de datos
+//Inicio de Imports que permiten la manipulación de la información de la base de datos
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.text.ParseException;
+//Fin de Imports que permiten la manipulación de la información de la base de datos
 import java.text.SimpleDateFormat;//Import que permite darle un formato a una fecha
 import java.util.Date;//Import que permite la utilización de fechas
 import java.util.Locale;//Import que selecciona la fecha según la region o pais en el que se encuentre el sistema
-import javax.swing.JOptionPane;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;//Import que permite mostrar mensajes en pantalla
 /**
  *
- * @author eisne
+ * @author Eisner López y Diego Murillo
  */
 public class Login extends javax.swing.JFrame {
-
     /**
-     * Creates new form Login
+     * Variable que se utilizará en esta clase
      */
     Coneccion cc = new Coneccion();
     Connection con = cc.conexion();
-
+    /**
+     * Medoto principal en el que se cargan los datos y componentes necesarios para mostrar la ventana
+     */
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,12 +85,13 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-        
         String usuario = txtNombre.getText();
         String password = txtPass.getText();
-        
-        acceder(txtNombre.getText(), txtPass.getText());
+        try {
+            acceder(txtNombre.getText(), txtPass.getText());
+        } catch (ParseException ex) {
+            System.out.println(ex);
+        }
         if ((usuario.isEmpty()) || (password.isEmpty())) {
             JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
         } else {
@@ -97,27 +99,29 @@ public class Login extends javax.swing.JFrame {
 //            dialogo.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    void acceder(String usuario, String pass) {
-        String capturarFecha = "";
+    /**
+     * Metodo que permite realizar la consulta en la base de datos para verificar que el usuario
+     * y la contraseña coincidan
+     * @param usuario
+     * @param pass
+     */
+    public void acceder(String usuario, String pass) throws ParseException {
+//        String capturarFecha = "";
         Date date = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
         String fecha = formatoFecha.format(date);
-        String fechaHoy = formatoFecha.format(date);
-        String fechaCadu;
-
+//        String fechaHoy = formatoFecha.format(date);
+//        String fechaCadu;
+        Date date_Caducidad = new Date();
         String sql = "Select * from usuarios where nombre_usuario = '" + usuario + "' and palabra_clave = '" + pass + "'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            
             while (rs.next()) {
-                capturarFecha = rs.getString("fecha_caducidad");
-                fechaCadu = formatoFecha.format(rs.getDate(5));
-                System.out.println(fechaCadu);
+                date_Caducidad = formatoFecha.parse(rs.getString("fecha_caducidad"));
             }
-            if(capturarFecha.equals(fecha))
-            {
+            date=formatoFecha.parse(fecha);
+            if(date_Caducidad.before(date)){//Verifica si la fecha de cadudidad consultada es mayor a la actual
                 JOptionPane.showMessageDialog(null, "Bienvenido");
 //                reproductorMP3 reproductor = new reproductorMP3();
 //                reproductor.setVisible(true);
@@ -127,6 +131,8 @@ public class Login extends javax.swing.JFrame {
                 buscar.setVisible(true);
                 this.setVisible(false);
                 Buscar.jLabel2.setText(usuario);
+            }else{
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ha finalizado su tiempo para utilizar este sistema.");
             }   
         } catch (SQLException ex) {
             System.out.println(ex);
