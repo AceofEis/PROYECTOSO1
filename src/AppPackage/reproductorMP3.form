@@ -183,7 +183,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="130" width="370" height="90"/>
+          <AbsoluteConstraints x="0" y="130" width="370" height="60"/>
         </Constraint>
       </Constraints>
 
@@ -199,6 +199,11 @@
             </Property>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUsuario">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

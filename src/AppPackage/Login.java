@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
      */
     Coneccion cc = new Coneccion();
     Connection con = cc.conexion();
+
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -83,41 +84,57 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         
+        String usuario = txtNombre.getText();
+        String password = txtPass.getText();
         
-        acceder(txtNombre.getText(),txtPass.getText());
+        acceder(txtNombre.getText(), txtPass.getText());
+        if ((usuario.isEmpty()) || (password.isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
+        } else {
+            this.setVisible(true);
+//            dialogo.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    void acceder(String usuario, String pass)
-    {
+    void acceder(String usuario, String pass) {
         String capturarFecha = "";
         Date date = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat( "yyyy/MM/dd", Locale.getDefault());
-        String fecha = formato.format(date);
-        String fechaHoy = formato.format(date);
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+        String fecha = formatoFecha.format(date);
+        String fechaHoy = formatoFecha.format(date);
         String fechaCadu;
-        
-        
+
         String sql = "Select * from usuarios where nombre_usuario = '" + usuario + "' and palabra_clave = '" + pass + "'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next())
-            {
-//               capturarFecha = rs.getString(usuario);
-               fechaCadu = formato.format(rs.getDate(5));
-               System.out.println(fechaCadu);
+            
+            while (rs.next()) {
+                capturarFecha = rs.getString("fecha_caducidad");
+                fechaCadu = formatoFecha.format(rs.getDate(5));
+                System.out.println(fechaCadu);
             }
-                
-//                JOptionPane.showMessageDialog(null, "Bienvenido");
-//                this.setVisible(false);
+            if(capturarFecha.equals(fecha))
+            {
+                JOptionPane.showMessageDialog(null, "Bienvenido");
 //                reproductorMP3 reproductor = new reproductorMP3();
 //                reproductor.setVisible(true);
+//                reproductor.pack();
+//                reproductorMP3.lblUsuario.setText(usuario);
+                Buscar buscar = new Buscar();
+                buscar.setVisible(true);
+                this.setVisible(false);
+                Buscar.jLabel2.setText(usuario);
 
+
+            }   
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * @param args the command line arguments
      */

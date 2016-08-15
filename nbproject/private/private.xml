@@ -1,22 +1,11 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SO1_Project/MP3_SO1/src/AppPackage/Buscar.java</file>
-            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SO1_Project/MP3_SO1/src/AppPackage/Login.java</file>
-            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SO1_Project/MP3_SO1/src/AppPackage/PruebaBD.java</file>
-            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SO1_Project/MP3_SO1/src/Conectar/Coneccion.java</file>
+            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SIN%20ERRORES/PROYECTOSO1/src/AppPackage/Login.java</file>
+            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SIN%20ERRORES/PROYECTOSO1/src/AppPackage/reproductorMP3.java</file>
+            <file>file:/C:/Users/eisne/Documents/NetBeansProjects/SIN%20ERRORES/PROYECTOSO1/src/AppPackage/Buscar.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
-    </open-files>
-</project-private>
->>>>>>> origin/master

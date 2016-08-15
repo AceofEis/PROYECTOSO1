@@ -40,6 +40,7 @@ public class reproductorMP3 extends javax.swing.JDialog {
         Background = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jProgressBar1 = new javax.swing.JProgressBar();
+        lblUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -112,8 +113,9 @@ public class reproductorMP3 extends javax.swing.JDialog {
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
         jProgressBar1.setStringPainted(true);
         jPanel1.add(jProgressBar1);
+        jPanel1.add(lblUsuario);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 370, 90));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 370, 60));
 
         jMenu1.setText("File");
 
@@ -277,5 +279,6 @@ public class reproductorMP3 extends javax.swing.JDialog {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
+    public static javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }
