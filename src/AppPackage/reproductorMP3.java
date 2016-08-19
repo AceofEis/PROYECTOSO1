@@ -186,7 +186,7 @@ public class reproductorMP3 extends javax.swing.JDialog {
         // TODO add your handling code here:
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos MP3", "mp3", "mpeg3");
 
-        JFileChooser chooser = new JFileChooser("C:\\Musica");
+        JFileChooser chooser = new JFileChooser("C:\\Users\\eisne\\Music");
         chooser.addChoosableFileFilter(filter);
 
         int returnVal = chooser.showOpenDialog(null);

@@ -20,5 +20,6 @@ public class PruebaBD {
     public static void main(String[] ses) throws SQLException
     {
         Conectar.Coneccion c = new Conectar.Coneccion();
+        System.out.println("Exito " + c);
     }
 }
