@@ -114,7 +114,7 @@ public class Login extends javax.swing.JFrame {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                date_Caducidad = rs.getDate(4);
+                date_Caducidad = rs.getDate(5);
             }
             if(date.before(date_Caducidad)){//Verifica si la fecha de cadudidad consultada es mayor a la actual
                 JOptionPane.showMessageDialog(null, "Bienvenido");
